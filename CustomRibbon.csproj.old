@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DFE4D093-5359-45B7-9BA7-6C99F9424B63}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomRibbon</RootNamespace>
+    <AssemblyName>CustomRibbon.ADSK</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autodesk.Navisworks.Api">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files\Autodesk\Navisworks Manage 2019\Autodesk.Navisworks.Api.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomRibbonCommandHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CustomRibbon.name">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CustomRibbon.xaml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\A_16.ico" />
+    <Content Include="Images\A_32.ico" />
+    <Content Include="Images\B_16.ico" />
+    <Content Include="Images\B_32.ico" />
+    <Content Include="Images\C_16.ico" />
+    <Content Include="Images\C_32.ico" />
+    <Content Include="Images\D_16.ico" />
+    <Content Include="Images\D_32.ico" />
+    <Content Include="Images\Eight_16.ico" />
+    <Content Include="Images\Eight_32.ico" />
+    <Content Include="Images\E_16.ico" />
+    <Content Include="Images\E_32.ico" />
+    <Content Include="Images\Five_16.ico" />
+    <Content Include="Images\Five_32.ico" />
+    <Content Include="Images\Four_16.ico" />
+    <Content Include="Images\Four_32.ico" />
+    <Content Include="Images\F_16.ico" />
+    <Content Include="Images\F_32.ico" />
+    <Content Include="Images\G_16.ico" />
+    <Content Include="Images\G_32.ico" />
+    <Content Include="Images\H_16.ico" />
+    <Content Include="Images\H_32.ico" />
+    <Content Include="Images\One_16.ico" />
+    <Content Include="Images\One_32.ico" />
+    <Content Include="Images\Seven_16.ico" />
+    <Content Include="Images\Seven_32.ico" />
+    <Content Include="Images\Six_16.ico" />
+    <Content Include="Images\Six_32.ico" />
+    <Content Include="Images\Three_16.ico" />
+    <Content Include="Images\Three_32.ico" />
+    <Content Include="Images\Two_16.ico" />
+    <Content Include="Images\Two_32.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>IF EXIST "$(ProjectDir)..\..\..\..\..\..\Plugins\$(TargetName)\" rmdir /S /Q "$(ProjectDir)..\..\..\..\..\..\Plugins\$(TargetName)\"
+xcopy /Y "$(TargetPath)" "$(ProjectDir)..\..\..\..\..\..\Plugins\$(TargetName)\"
+
+mkdir "$(ProjectDir)..\..\..\..\..\..\Plugins\$(TargetName)\en-US
+copy /Y "$(ProjectDir)CustomRibbon.xaml" "$(ProjectDir)..\..\..\..\..\..\Plugins\$(TargetName)\en-US\"
+
+mkdir "$(ProjectDir)..\..\..\..\..\..\Plugins\$(TargetName)\en-US
+copy /Y "$(ProjectDir)CustomRibbon.name" "$(ProjectDir)..\..\..\..\..\..\Plugins\$(TargetName)\en-US\"
+
+xcopy /Y "$(ProjectDir)Images\*.*" "$(ProjectDir)..\..\..\..\..\..\Plugins\$(TargetName)\Images\"
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

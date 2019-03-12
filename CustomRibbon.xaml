@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- BEGIN STANDARD SECTION DO NOT EDIT 
+    except for ensuring x:Uid="CustomRibbonTab" has a unique ID
+    -->
+<RibbonControl 
+    x:Uid="CustomRibbonTab" xmlns="clr-namespace:Autodesk.Windows;assembly=AdWindows" 
+    xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:adwi="clr-namespace:Autodesk.Internal.Windows;assembly=AdWindows"  
+    xmlns:system="clr-namespace:System;assembly=mscorlib" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Autodesk.Navisworks.Gui.Roamer.AIRLook;assembly=navisworks.gui.roamer">
+    <!-- END STANDARD SECTION DO NOT EDIT -->
+
+   <!-- RibbonTab defines a tab on the ribbon
+        Attributes for RibbonTab include:
+            Id = Defines a unique identifier for the ribbon tab - this must be identical to the ribbon
+                 tab Id in compiled code.
+            Title = defines the text than appears on the tab. This overrides the DisplayName defined
+                 by the RibbonTab attribute in compiled code.         
+            KeyTip = The key or combination of keys that enables the tab to be activated using the keyboard
+                 rather than the mouse. Keytips are made visible by pressing <Alt>.
+   -->
+    <RibbonTab Id="ID_CustomTab_1" Title="轻量化" KeyTip="C1">
+
+      <!-- RibbonPanel provides a distinct panel in the ribbon tab for a group of buttons -->
+      <RibbonPanel x:Uid="RibbonPanel_1">
+         <!-- RibbonPanelSource defines the content and proerties of the parent RibbonPanel. -->
+         <RibbonPanelSource x:Uid="RibbonPanelSource_RibbonPanel_1" KeyTip="C1" Title="Basic Buttons">
+
+            <!-- local:NWRibbonButton indicates a button in the ribbon.
+                Attributes for button include:
+                    Size: Standard (default) or Large.
+                    Image = Image to display (overrides that defined by plugin attributes in the compiled code) 
+                            The image path defines the location relative to the ribbon definition file (i.e. this), 
+				                hence our image path here indicates that the images are located in an Images subdirectory
+                            next to the sub-directory when the ribbon file is located. If you wish you can define the 
+                            image location relative to the Roamer executable by using Image="pack://siteOfOrigin:,,,{image location}"
+                            where {image location} is the location of the icon (or png file) relative to the executable. 
+                            Standard images must be 16x16 pixels. For large buttons specify Size="Large" and define a 
+                            LargeImage attribute, which must be 32x32 pixels.
+                    KeyTip = the key or combination of keys that enables the button to be activated using the keyboard
+                            rather than the mouse. Keytips are made visible by pressing <Alt> .
+                    Orientation = "Horizontal" or "Vertical":
+                            Horizontal places the buttons side by side with the Text.
+                            Vertical places the buttons above the text.
+                    ShowText : indicates whether the button should display its Text with the button, or image only.
+                    Text: text displayed on the button if ShowText is true (overrides that defined by plugin attributes 
+                            in the compiled code) 
+            -->
+            <!-- Example of large button, text visible underneath, LargeImage is defined by LargeIcon attribute property
+                 in compiled code. Text is defined by DisplayName attribute property in compile code. -->
+            <local:NWRibbonButton x:Uid="Button_1" Id="ID_Button_1"
+                                      Size="Large"
+                                      KeyTip="B1"
+                                      ShowText="True" 
+                                      Orientation="Vertical"/>
+
+            <!-- Example of Panel container that shows small buttons in a vertical row. -->
+            <RibbonRowPanel x:Uid="RibbonRowPanel_1">
+               <!--  Small buttons, text displayed horizontally to the right hand side -->
+               <local:NWRibbonButton x:Uid="Button_2" Id="ID_Button_2"
+                                         Image="..\Images/Two_16.ico" 
+                                         KeyTip="B2"
+                                         ShowText="True" 
+                                         Text="Activate Tab 2"
+                                         Orientation="Horizontal" />
+               <!-- RibbonRowBreak causes the next item in the row to wrap to the next line -->
+               <RibbonRowBreak x:Uid="RibbonRowBreak_1" />
+               
+               <local:NWRibbonButton x:Uid="Button_3" Id="ID_Button_3"
+                                         Image="..\Images/Three_16.ico" 
+                                         KeyTip="B3"
+                                         ShowText="True"
+                                         Text="Show Button 4"
+                                         Orientation="Horizontal" />
+            </RibbonRowPanel>
+            <!-- Example of large button, no text displayed -->
+            <local:NWRibbonButton x:Uid="Button_4" Id="ID_Button_4"
+                                      Size="Large"
+                                      LargeImage="..\Images/Four_32.ico" 
+                                      KeyTip="B4"
+                                      ShowText="False" />
+         </RibbonPanelSource>
+      </RibbonPanel>
+
+      <!-- Drop-down Menu Buttons-->
+      <RibbonPanel x:Uid="RibbonPanel_2" >
+         <RibbonPanelSource x:Uid="RibbonPanelSource_RibbonPanel_2" KeyTip="T2" Title="Split Buttons">
+
+            <!-- Split button, synchronised with current item (i.e. the last drop-down item clicked appears on the button).
+                 Split="True" indicates that the the button can be clicked independently from the drop down, thus activating
+                 the current item. Orientation is vertical, so text and drop-down arrow appear vertically underneath. Note 
+                 that the Id for the split button is the item that you wish to be the first current item. -->
+            <local:NWRibbonSplitButton x:Uid="SplitButton_1" Id="ID_Button_5" 
+                                               IsSynchronizedWithCurrentItem="True" 
+                                               IsSplit="True" 
+                                               ShowText="True"
+                                               Orientation="Vertical"
+                                               Size="Large"
+                                               KeyTip="S1">
+               <!-- The drop down item is small, but because the button is synchronised we need the large image - it is 
+                    displayed on the button when it is the current item. -->
+               <local:NWRibbonButton x:Uid="Button_5" Id="ID_Button_5"
+                                              Orientation="Horizontal"
+                                              Image="..\Images/Five_16.ico" 
+                                              LargeImage="..\Images/Five_32.ico"
+                                              KeyTip="B5"/>
+               <local:NWRibbonButton x:Uid="Button_6" Id="ID_Button_6" 
+                                              Orientation="Horizontal"
+                                              Image="..\Images/Six_16.ico" 
+                                              LargeImage="..\Images/Six_32.ico"
+                                              KeyTip="B6"/>
+               <!-- Place a divider in the list-->
+               <RibbonSeparator x:Uid="RibbonSeparator_1"/>
+               
+               <local:NWRibbonButton x:Uid="Button_7" Id="ID_Button_7" 
+                                              Orientation="Horizontal"
+                                              Image="..\Images/Seven_16.ico" 
+                                              LargeImage="..\Images/Seven_32.ico"
+                                              KeyTip="B7"/>
+            </local:NWRibbonSplitButton>
+
+            <!-- Split button, not synchronised with the current item. The button can be clicked independently 
+                 from the drop-down menu. Orientation is horizontal so the drop-down arrow appears to the right
+                 hand side. Note: The split button can have the same Id as one of the drop-down items, or it can
+                 be a different command.-->
+            <local:NWRibbonSplitButton x:Uid="SplitButton_2" Id="ID_Button_A"
+                                             IsSynchronizedWithCurrentItem="False"
+                                             IsSplit="True"
+                                             KeyTip="S2"
+                                             Size="Standard"
+                                             Image="..\Images/A_16.ico"
+                                             Orientation="Horizontal">
+               <local:NWRibbonButton x:Uid="Button_A" Id="ID_Button_A"  
+                                             ShowText="True"
+                                             Size="Large"
+                                             Image="..\Images/A_16.ico"
+                                             LargeImage="..\Images/A_32.ico"
+                                             KeyTip="A"/>
+               <local:NWRibbonButton x:Uid="Button_B" Id="ID_Button_B"  
+                                             ShowText="True"
+                                             Size="Large"
+                                             Image="..\Images/B_16.ico"
+                                             LargeImage="..\Images/B_32.ico"
+                                             KeyTip="BB"/>
+               <local:NWRibbonButton x:Uid="Button_C" Id="ID_Button_C"  
+                                             ShowText="True"
+                                             Size="Large"
+                                             Image="..\Images/C_16.ico"
+                                             LargeImage="..\Images/C_32.ico"
+                                             KeyTip="C"/>
+            </local:NWRibbonSplitButton>
+            <!-- Split button, configured to behave as a radio button (i.e. all drop-down items are toggle commands, but only  
+                 one can be toggled 'on' at any point in time). Split="False" so clicking the split button will always cause the
+                 list to drop-down. 
+                 Note 1: NWRibbonCommandItem, used for the drop-down items here, is exactly the same as NWRibbonButton but does 
+                 not display the toggle state of the command.
+                 Note 2: In this case we want to fix the text of the split button as "Radio Button" but we want the icon to 
+                 indicate the current item. So, the split button is set to synchronise with the current item, we set the Text
+                 attribute of all the drop-down items as "Radio Button" and we set the Name attribute for the item text that 
+                 appears in the drop-down.
+            -->
+            <local:NWRibbonSplitButton x:Uid="SplitButton_3" Id="ID_Button_D"
+                                             IsSynchronizedWithCurrentItem="True"
+                                             IsSplit="False"
+                                             KeyTip="S3"
+                                             ShowText="True"
+                                             Text="Radio Button"
+                                             Size="Large"
+                                             Orientation="Vertical">
+               <local:NWRibbonCommandItem x:Uid="Button_D" Id="ID_Button_D"  
+                                             ShowText="True"
+                                             Text="Radio Button"
+                                             Name="Button D"
+                                             Size="Large"
+                                             LargeImage="..\Images/D_32.ico"
+                                             KeyTip="D" />
+               <local:NWRibbonCommandItem x:Uid="Button_E" Id="ID_Button_E"  
+                                             ShowText="True"
+                                             Text="Radio Button"
+                                             Name="Button E"
+                                             Size="Large"
+                                             LargeImage="..\Images/E_32.ico"
+                                             KeyTip="E" />
+               <local:NWRibbonCommandItem x:Uid="Button_F" Id="ID_Button_F"  
+                                             ShowText="True"
+                                             Text="Radio Button"
+                                             Name="Button F"
+                                             Size="Large"
+                                             LargeImage="..\Images/F_32.ico"
+                                             KeyTip="F" />
+            </local:NWRibbonSplitButton>
+            
+         </RibbonPanelSource>
+      </RibbonPanel>
+   </RibbonTab>
+
+   <RibbonTab Id="ID_CustomTab_2" Title="Custom Tab 2" KeyTip="T2">
+
+      <!-- RibbonPanel provides a distinct panel in the ribbon tab for a group of buttons -->
+      <RibbonPanel x:Uid="RibbonPanel_3">
+         <!-- RibbonPanelSource defines the content and proerties of the parent RibbonPanel. -->
+         <RibbonPanelSource x:Uid="RibbonPanelSource_RibbonPanel_3" KeyTip="P" Title="More Buttons">
+            <!-- Drop-down menu: similar to split button but has a menu appearance.-->
+            <local:NWRibbonMenuButton x:Uid="local:NWRibbonMenuButton_1" Id="ID_Button_G"
+                                       IsSynchronizedWithCurrentItem="False"
+                                       IsSplit="False"
+                                       ShowText="True"
+                                       Text="Menu Button"
+                                       KeyTip="M"
+                                       Orientation="Horizontal"
+                                       Size="Large"
+                                       LargeImage="..\Images/G_32.ico">
+               <local:NWRibbonMenuItem x:Uid="MenuButton_G" Id="ID_Button_G"
+                                       ShowText="True" 
+                                       Size="Standard"
+                                       Image="..\Images/G_16.ico" />
+               <local:NWRibbonMenuItem x:Uid="MenuButton_H" Id="ID_Button_H"
+                                       ShowText="True" 
+                                       Size="Standard"
+                                       Image="..\Images/H_16.ico" />
+            </local:NWRibbonMenuButton>
+
+            <!-- Drop-down button containing check boxes: similar to split button in behaviour.-->
+            <local:NWRibbonChecklistButton x:Uid="local:NWRibbonChecklistButton_1" Id="ID_Button_G"  
+                                       IsSplit="False" 
+                                       IsSynchronizedWithCurrentItem="False" 
+                                       ShowText="True" 
+                                       Text="Checklist Button"
+                                       KeyTip="C"
+                                       Size="Large"
+                                       LargeImage="..\Images/G_32.ico"
+                                       Orientation="Horizontal"  >
+               <local:NWRibbonCommandItem x:Uid="CheckButton_G" Id="ID_Button_G"
+                                       ShowText="True" />
+               <local:NWRibbonCommandItem x:Uid="CheckButton_H" Id="ID_Button_H"
+                                       ShowText="True" />
+            </local:NWRibbonChecklistButton>
+
+             <!-- Create a drop down on the panel title bar-->
+            <RibbonPanelBreak x:Uid="RibbonPanelBreak_1"/>
+            <!-- The following items appear in the panel drop-down. -->   
+            <local:NWRibbonButton x:Uid="Button_8" Id="ID_Button_8"
+                                      KeyTip="B8"
+                                      ShowText="True" 
+                                      Orientation="Horizontal"
+                                      Size="Large"
+                                      LargeImage="..\Images/Eight_32.ico" />
+
+         </RibbonPanelSource>
+      </RibbonPanel>
+   </RibbonTab>
+
+
+<!-- BEGIN STANDARD SECTION DO NOT EDIT -->
+</RibbonControl>
+<!-- END STANDARD SECTION DO NOT EDIT -->

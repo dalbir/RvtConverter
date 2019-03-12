@@ -1,0 +1,210 @@
+﻿# This file uses UTF8 encoding. Lines starting with # or $, or ending with =
+# do NOT need translating.
+$utf8
+
+DisplayName=
+Custom Ribbon
+
+#
+# Tab 1 localised text
+#
+ID_CustomTab_1.DisplayName=
+Custom Tab 1
+
+#
+# Tab 2 localised text
+#
+ID_CustomTab_2.DisplayName=
+Custom Tab 2
+
+#
+# Button 2 localised text
+#
+ID_Button_2.DisplayName=
+Button 2
+
+ID_Button_2.ToolTip=
+Button 2 ToolTip
+
+ID_Button_2.ExtendedToolTip=
+More information about Button 2
+
+#
+# Button 3 localised text
+#
+ID_Button_3.DisplayName=
+Button 3
+
+ID_Button_3.ToolTip=
+Button 3 ToolTip
+
+ID_Button_3.ExtendedToolTip=
+More information about Button 3
+
+#
+# Button 4 localised text
+#
+ID_Button_4.DisplayName=
+Button 4
+
+ID_Button_4.ToolTip=
+Button 4 ToolTip
+
+ID_Button_4.ExtendedToolTip=
+More information about Button 4
+
+#
+# Button 5 localised text
+#
+ID_Button_5.DisplayName=
+Button 5
+
+ID_Button_5.ToolTip=
+Button 5 ToolTip
+
+ID_Button_5.ExtendedToolTip=
+More information about Button 5
+
+#
+# Button 6 localised text
+#
+ID_Button_6.DisplayName=
+Button 6
+
+ID_Button_6.ToolTip=
+Button 6 ToolTip
+
+ID_Button_6.ExtendedToolTip=
+More information about Button 6
+
+
+#
+# Button 7 localised text
+#
+ID_Button_7.DisplayName=
+Button 7
+
+ID_Button_7.ToolTip=
+Button 7 ToolTip
+
+ID_Button_7.ExtendedToolTip=
+More information about Button 7
+
+
+#
+# Button 8 localised text
+#
+ID_Button_8.DisplayName=
+Button 8
+
+ID_Button_8.ToolTip=
+Button 8 ToolTip
+
+ID_Button_8.ExtendedToolTip=
+More information about Button 8
+
+
+#
+# Button A localised text
+#
+ID_Button_A.DisplayName=
+Button A
+
+ID_Button_A.ToolTip=
+Button A ToolTip
+
+ID_Button_A.ExtendedToolTip=
+More information about Button A
+
+
+#
+# Button B localised text
+#
+ID_Button_B.DisplayName=
+Button B
+
+ID_Button_B.ToolTip=
+Button B ToolTip
+
+ID_Button_B.ExtendedToolTip=
+More information about Button B
+
+
+#
+# Button C localised text
+#
+ID_Button_C.DisplayName=
+Button C
+
+ID_Button_C.ToolTip=
+Button C ToolTip
+
+ID_Button_C.ExtendedToolTip=
+More information about Button C
+
+
+#
+# Button D localised text
+#
+ID_Button_D.DisplayName=
+Button D
+
+ID_Button_D.ToolTip=
+Button D ToolTip
+
+ID_Button_D.ExtendedToolTip=
+More information about Button D
+
+
+#
+# Button E localised text
+#
+ID_Button_E.DisplayName=
+Button E
+
+ID_Button_E.ToolTip=
+Button E ToolTip
+
+ID_Button_E.ExtendedToolTip=
+More information about Button E
+
+#
+# Button F localised text
+#
+ID_Button_F.DisplayName=
+Button F
+
+ID_Button_F.ToolTip=
+Button F ToolTip
+
+ID_Button_F.ExtendedToolTip=
+More information about Button F
+
+
+#
+# Button G localised text
+#
+ID_Button_G.DisplayName=
+Button G
+
+ID_Button_G.ToolTip=
+Button G ToolTip
+
+ID_Button_G.ExtendedToolTip=
+More information about Button G
+
+
+#
+# Button H localised text
+#
+ID_Button_H.DisplayName=
+Button H
+
+ID_Button_H.ToolTip=
+Button H ToolTip
+
+ID_Button_H.ExtendedToolTip=
+More information about Button H
+
+
+
